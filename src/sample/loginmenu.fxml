@@ -17,7 +17,7 @@
             <Label layoutX="245.0" layoutY="199.0" text="Hasło" />
             <PasswordField layoutX="245.0" layoutY="216.0" />
             <Button layoutX="292.0" layoutY="308.0" mnemonicParsing="false" text="Zaloguj" />
-            <Label layoutX="242.0" layoutY="270.0" text="Niepoprawny login lub hasło!" textFill="RED" />
+            <Label layoutX="242.0" layoutY="270.0" text="Niepoprawny login lub hasło!" textFill="RED" visible="false" />
          </children>
       </AnchorPane>
    </children>
