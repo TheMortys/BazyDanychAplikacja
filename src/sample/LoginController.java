@@ -14,7 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class LoginController {
-	@FXML
+    
+    @FXML
     private TextField loginField;
 
     @FXML
@@ -23,8 +24,14 @@ public class LoginController {
     @FXML
     private Button submitButton;
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     protected void handleSubmitButtonAction(ActionEvent event) throws IOException{
+        System.out.println(event.getSource().toString());
     	Parent viewParent = FXMLLoader.load(getClass().getResource("klientDaneKonta.fxml"));
     	Scene viewScene = new Scene(viewParent);
     	

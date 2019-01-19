@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.KlientController">
    <children>
       <AnchorPane prefHeight="480.0" prefWidth="640.0">
          <children>
@@ -31,10 +31,10 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Button layoutX="14.0" layoutY="43.0" mnemonicParsing="false" text="Nowa transakcja" />
-            <Button layoutX="126.0" layoutY="43.0" mnemonicParsing="false" text="Historia" />
-            <Button layoutX="283.0" layoutY="43.0" mnemonicParsing="false" text="Pożyczki" />
-            <Button layoutX="354.0" layoutY="43.0" mnemonicParsing="false" text="Lokaty" />
+            <Button fx:id="transactionButton" layoutX="14.0" layoutY="43.0" mnemonicParsing="false" text="Nowa transakcja" onAction="#transactionButtonAction"/>
+            <Button fx:id="historyButton" layoutX="126.0" layoutY="43.0" mnemonicParsing="false" text="Historia" onAction="#historyButtonAction"/>
+            <Button fx:id="loanButton" layoutX="283.0" layoutY="43.0" mnemonicParsing="false" text="Pożyczki" onAction="#loanButtonAction"/>
+            <Button fx:id="investmentButton" layoutX="354.0" layoutY="43.0" mnemonicParsing="false" text="Lokaty" onAction="#investmentButtonAction"/>
             <Label layoutX="204.0" layoutY="47.0" text="Dane konta" />
             <Label layoutX="17.0" layoutY="85.0" text="Dane podstawowe">
                <font>
@@ -77,7 +77,7 @@
             <Label layoutX="510.0" layoutY="135.0" text="Label" />
             <Label layoutX="55.0" layoutY="240.0" text="Numer konta:" />
             <Label layoutX="181.0" layoutY="240.0" text="25 0000 6985 7458 2361 1236 7852" />
-            <Button layoutX="68.0" layoutY="276.0" mnemonicParsing="false" text="Edytuj dane" />
+            <Button fx:id="editButton" layoutX="68.0" layoutY="276.0" mnemonicParsing="false" text="Edytuj dane" onAction="#editButtonAction"/>
          </children>
       </AnchorPane>
    </children>
