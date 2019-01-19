@@ -7,17 +7,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane prefHeight="480.0" prefWidth="640.0">
          <children>
             <Label layoutX="245.0" layoutY="148.0" text="Login" />
-            <TextField fx:id="loginField" layoutX="245.0" layoutY="165.0" />
+            <TextField layoutX="245.0" layoutY="165.0" />
             <Label layoutX="245.0" layoutY="199.0" text="Hasło" />
-            <PasswordField fx:id="passwordField" layoutX="245.0" layoutY="216.0" />
-            <Button fx:id="submitButton" layoutX="292.0" layoutY="308.0" mnemonicParsing="false" text="Zaloguj" onAction="#handleSubmitButtonAction"/>
+            <PasswordField layoutX="245.0" layoutY="216.0" />
+            <Button layoutX="245.0" layoutY="304.0" mnemonicParsing="false" text="Zaloguj (klient)" />
             <Label layoutX="242.0" layoutY="270.0" text="Niepoprawny login lub hasło!" textFill="RED" />
+            <Button layoutX="245.0" layoutY="346.0" mnemonicParsing="false" text="Zaloguj (pracownik)" />
          </children>
       </AnchorPane>
    </children>
