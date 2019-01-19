@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.LoanController">
+   <children>
+      <AnchorPane prefHeight="480.0" prefWidth="640.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Klient:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="62.0" layoutY="14.0" text="Jan Kowalski">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="188.0" layoutY="14.0" text="Saldo:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="260.0" layoutY="14.0" text="12345.67 zł">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="transactionButton" layoutX="14.0" layoutY="43.0" mnemonicParsing="false" text="Nowa transakcja" onAction="#transactionButtonAction"/>
+            <Button fx:id="historyButton" layoutX="135.0" layoutY="43.0" mnemonicParsing="false" text="Historia" onAction="#historyButtonAction"/>
+            <Button fx:id="accInfoButton" layoutX="206.0" layoutY="43.0" mnemonicParsing="false" text="Dane konta" onAction="#accInfoButtonAction"/>
+            <Label layoutX="297.0" layoutY="47.0" text="Pożyczki" />
+            <Button fx:id="investmentButton" layoutX="355.0" layoutY="43.0" mnemonicParsing="false" text="Lokaty" onAction="#investmentButtonAction"/>
+            <Label layoutX="19.0" layoutY="87.0" text="Moje pożyczki">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ListView layoutX="17.0" layoutY="114.0" prefHeight="200.0" prefWidth="605.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

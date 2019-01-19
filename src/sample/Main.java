@@ -1,6 +1,5 @@
 package sample;
 
-import com.google.gson.Gson;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("loginmenu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Controllers/FXMLs/loginmenu.fxml"));
         primaryStage.setTitle("Bazy Danych 2 - Magdalena Olchawa, Mateusz Markowski, Marek Morys");
         primaryStage.setScene(new Scene(root, 640, 480));
         primaryStage.show();
