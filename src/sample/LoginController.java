@@ -2,6 +2,10 @@ package sample;
 
 import java.io.IOException;
 
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,10 +38,39 @@ public class LoginController {
         System.out.println(event.getSource().toString());
     	Parent viewParent = FXMLLoader.load(getClass().getResource("klientDaneKonta.fxml"));
     	Scene viewScene = new Scene(viewParent);
-    	
-    	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-    	window.setScene(viewScene);
-    	window.show();
+
+    	//TODO client / pracodawca
+        Server.getInstance().getRoute().workerLogin(new LoginRequest(loginField.getText(), passwordField.getText()))
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<Worker>() {
+                    @Override
+                    public void onSubscribe(Disposable disposable) {
+                        //DISPOSABLE
+                    }
+
+                    @Override
+                    public void onNext(Worker worker) {
+                        // ...
+                        Platform.runLater(() -> {
+                            //TODO tutaj mamy authToken
+                            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                            window.setScene(viewScene);
+                            window.show();
+                        });
+                    }
+
+                    @Override
+                    public void onError(Throwable throwable) {
+                        System.out.println(throwable.toString());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
+
+
     
 }
