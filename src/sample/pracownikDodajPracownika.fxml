@@ -23,7 +23,7 @@
             <TextField layoutX="17.0" layoutY="240.0" promptText="Stanowisko" />
             <TextField layoutX="17.0" layoutY="275.0" promptText="Login" />
             <TextField layoutX="17.0" layoutY="311.0" promptText="Hasło" />
-            <Label layoutX="17.0" layoutY="394.0" text="Coś poszło nie tak, spróbuj ponownie" textFill="RED" />
+            <Label fx:id="errorLabel" layoutX="17.0" layoutY="394.0" text="Coś poszło nie tak, spróbuj ponownie" textFill="RED" visible="false"/>
             <Button fx:id="addAccButton" layoutX="40.0" layoutY="355.0" mnemonicParsing="false" text="Dodaj" onAction="#addAccButtonAction"/>
          </children>
       </AnchorPane>

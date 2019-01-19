@@ -19,7 +19,7 @@
             <TextField layoutX="14.0" layoutY="76.0" promptText="Imię" />
             <TextField layoutX="14.0" layoutY="108.0" promptText="Nazwisko" />
             <TextField layoutX="14.0" layoutY="141.0" promptText="PESEL" />
-            <Label layoutX="15.0" layoutY="174.0" text="Nie znaleziono takiego konta!" textFill="RED" />
+            <Label fx:id="errorLabel" layoutX="15.0" layoutY="174.0" text="Nie znaleziono takiego konta!" textFill="RED" visible="false" />
             <Button fx:id="searchButton" layoutX="15.0" layoutY="215.0" mnemonicParsing="false" text="Wyszukaj" onAction="#searchButtonAction"/>
          </children>
       </AnchorPane>

@@ -12,7 +12,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("loginmenu.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Bazy Danych 2 - Magdalena Olchawa, Mateusz Markowski, Marek Morys");
         primaryStage.setScene(new Scene(root, 640, 480));
         primaryStage.show();
     }
