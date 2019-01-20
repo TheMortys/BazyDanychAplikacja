@@ -10,6 +10,8 @@
 <?import javafx.scene.text.Font?>
 
 
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.TransactionsController">
    <children>
       <AnchorPane prefHeight="480.0" prefWidth="640.0">
@@ -44,7 +46,14 @@
             <TextField layoutX="21.0" layoutY="146.0" promptText="Tytułem" />
             <TextField layoutX="21.0" layoutY="186.0" promptText="0,00" />
             <Label layoutX="175.0" layoutY="190.0" text="zł" />
-            <ChoiceBox layoutX="21.0" layoutY="228.0" prefWidth="150.0" />
+            <ChoiceBox layoutX="21.0" layoutY="228.0" prefWidth="150.0">
+            <items>
+               <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Przelew" />
+                  <String fx:value="Spłata kredytu" />
+               </FXCollections>
+            </items>
+            </ChoiceBox>
             <DatePicker layoutX="19.0" layoutY="268.0" />
             <Button fx:id="acceptButton" layoutX="42.0" layoutY="316.0" mnemonicParsing="false" text="Wykonaj" onAction="#acceptButtonAction"/>
             <Label fx:id="errorLabel" layoutX="21.0" layoutY="367.0" text="Coś poszło nie tak, spróbuj ponownie" textFill="RED" visible="false" />
