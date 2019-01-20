@@ -6,14 +6,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.PlaceInfoController">
    <children>
       <AnchorPane prefHeight="480.0" prefWidth="640.0">
          <children>
-            <Button fx:id="createAccButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Stwórz konto" onAction="#createAccButtonAction"/>
-            <Button fx:id="existingAccButton" layoutX="110.0" layoutY="14.0" mnemonicParsing="false" text="Akcja na istniejącym koncie" onAction="#existingAccButtonAction"/>
-            <Button fx:id="addEmployeeButton" layoutX="281.0" layoutY="14.0" mnemonicParsing="false" text="Dodaj pracownika" onAction="#addEmployeeButtonAction"/>
+            <Button fx:id="createAccButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#createAccButtonAction" text="Stwórz konto" />
+            <Button fx:id="existingAccButton" layoutX="110.0" layoutY="14.0" mnemonicParsing="false" onAction="#existingAccButtonAction" text="Akcja na istniejącym koncie" />
+            <Button fx:id="addEmployeeButton" layoutX="281.0" layoutY="14.0" mnemonicParsing="false" onAction="#addEmployeeButtonAction" text="Dodaj pracownika" />
             <Label layoutX="402.0" layoutY="18.0" text="Dane placówki" />
             <Label layoutX="29.0" layoutY="65.0" text="Dane podstawowe">
                <font>
@@ -23,10 +22,20 @@
             <Label layoutX="29.0" layoutY="93.0" text="Nazwa:" />
             <Label layoutX="29.0" layoutY="110.0" text="Telefon:" />
             <Label layoutX="29.0" layoutY="127.0" text="E-mail:" />
-            <Button fx:id="editButton" layoutX="42.0" layoutY="202.0" mnemonicParsing="false" text="Edytuj dane" onAction="#editButtonAction"/>
+            <Button fx:id="editButton" layoutX="42.0" layoutY="202.0" mnemonicParsing="false" onAction="#editButtonAction" text="Edytuj dane" />
             <Label fx:id="nazwa" layoutX="119.0" layoutY="93.0" text="Mój bank" />
             <Label fx:id="telefon" layoutX="119.0" layoutY="110.0" text="501 785 459" />
             <Label fx:id="mail" layoutX="119.0" layoutY="127.0" text="moj.bank@poczta.pl" />
+            <Label layoutX="306.0" layoutY="93.0" text="Ulica:" />
+            <Label layoutX="306.0" layoutY="110.0" text="Numer domu:" />
+            <Label layoutX="306.0" layoutY="127.0" text="Numer lokalu:" />
+            <Label layoutX="306.0" layoutY="144.0" text="Kod pocztowy:" />
+            <Label layoutX="306.0" layoutY="161.0" text="Miejscowość:" />
+            <Label layoutX="413.0" layoutY="93.0" text="Testowa" />
+            <Label layoutX="413.0" layoutY="110.0" text="1" />
+            <Label layoutX="413.0" layoutY="127.0" text="1" />
+            <Label layoutX="413.0" layoutY="144.0" text="11111" />
+            <Label layoutX="413.0" layoutY="161.0" text="Test" />
          </children>
       </AnchorPane>
    </children>
