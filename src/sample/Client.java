@@ -2,8 +2,6 @@ package sample;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.sql.Date;
-
 public class Client {
 
     public Client(String name, String lastName, String pesel, String nip, String date, String login, String password, String street, String adrNumber1, String adrNumber2, String zipCode, String city, int telephone, String mail) {

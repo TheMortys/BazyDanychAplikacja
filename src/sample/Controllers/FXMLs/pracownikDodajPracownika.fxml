@@ -16,13 +16,13 @@
             <Label layoutX="292.0" layoutY="18.0" text="Dodaj pracownika" />
             <Button fx:id="infoButton" layoutX="397.0" layoutY="14.0" mnemonicParsing="false" text="Dane placówki" onAction="#infoButtonAction"/>
             <Label layoutX="17.0" layoutY="71.0" text="Dane podstawowe" />
-            <TextField layoutX="17.0" layoutY="105.0" promptText="Imię" />
-            <TextField layoutX="17.0" layoutY="140.0" promptText="Nazwisko" />
-            <TextField layoutX="17.0" layoutY="176.0" promptText="Telefon" />
-            <TextField layoutX="17.0" layoutY="209.0" promptText="E-mail" />
-            <TextField layoutX="17.0" layoutY="240.0" promptText="Stanowisko" />
-            <TextField layoutX="17.0" layoutY="275.0" promptText="Login" />
-            <TextField layoutX="17.0" layoutY="311.0" promptText="Hasło" />
+            <TextField fx:id="imie" layoutX="17.0" layoutY="105.0" promptText="Imię" />
+            <TextField fx:id="nazwisko" layoutX="17.0" layoutY="140.0" promptText="Nazwisko" />
+            <TextField fx:id="telefon" layoutX="17.0" layoutY="176.0" promptText="Telefon" />
+            <TextField fx:id="email" layoutX="17.0" layoutY="209.0" promptText="E-mail" />
+            <TextField fx:id="stanowisko" layoutX="17.0" layoutY="240.0" promptText="Stanowisko" />
+            <TextField fx:id="login" layoutX="17.0" layoutY="275.0" promptText="Login" />
+            <TextField fx:id="haslo" layoutX="17.0" layoutY="311.0" promptText="Hasło" />
             <Label fx:id="errorLabel" layoutX="17.0" layoutY="394.0" text="Coś poszło nie tak, spróbuj ponownie" textFill="RED" visible="false"/>
             <Button fx:id="addAccButton" layoutX="40.0" layoutY="355.0" mnemonicParsing="false" text="Dodaj" onAction="#addAccButtonAction"/>
          </children>

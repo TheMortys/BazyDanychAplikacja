@@ -19,21 +19,17 @@ import javafx.stage.Stage;
 import sample.*;
 
 public class LoginController {
-    
+
     @FXML
     private TextField loginField;
-
     @FXML
     private PasswordField passwordField;
-
     @FXML
     private Label errorLabel;
 
     @FXML
-    protected void handleClientButtonAction(ActionEvent event) throws IOException{
+    protected void handleClientButtonAction(ActionEvent event){
         System.out.println(event.getSource().toString());
-        Parent viewParent = FXMLLoader.load(getClass().getResource("FXMLs/klientDaneKonta.fxml"));
-        Scene viewScene = new Scene(viewParent);
         //TODO client / pracownik
         Server.getInstance().getRoute().clientLogin(new LoginRequest(loginField.getText(), passwordField.getText()))
                 .subscribeOn(Schedulers.io())
@@ -50,6 +46,13 @@ public class LoginController {
                         downloadClientProfile();
                         Platform.runLater(() -> {
                             //TODO tutaj mamy authToken
+                            Parent viewParent = null;
+                            try {
+                                viewParent = FXMLLoader.load(getClass().getResource("FXMLs/klientDaneKonta.fxml"));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            Scene viewScene = new Scene(viewParent);
                             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                             window.setScene(viewScene);
                             window.show();
@@ -81,7 +84,37 @@ public class LoginController {
 
                     @Override
                     public void onNext(ClientProfile clientProfile) {
-                        System.out.println(clientProfile.toString());
+                        //System.out.println(clientProfile.toString());
+                        Constants.client = clientProfile;
+                        System.out.println(Constants.client);
+                    }
+
+                    @Override
+                    public void onError(Throwable throwable) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    private void downloadBankProfile() {
+        Server.getInstance().getRoute().getBank("Bearer " + Constants.WORKER_AUTH_TOKEN)
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<Bank>() {
+                    @Override
+                    public void onSubscribe(Disposable disposable) {
+
+                    }
+
+                    @Override
+                    public void onNext(Bank bank) {
+                        //System.out.println(clientProfile.toString());
+                        Constants.bank = bank;
+                        System.out.println(Constants.bank);
                     }
 
                     @Override
@@ -101,10 +134,9 @@ public class LoginController {
      * @throws IOException
      */
     @FXML
-    protected void handleSubmitButtonAction(ActionEvent event) throws IOException{
+    protected void handleSubmitButtonAction(ActionEvent event){
         System.out.println(event.getSource().toString());
-    	Parent viewParent = FXMLLoader.load(getClass().getResource("FXMLs/pracownikStworzKonto.fxml"));
-    	Scene viewScene = new Scene(viewParent);
+
 
     	//TODO client / pracownik
         Server.getInstance().getRoute().workerLogin(new LoginRequest(loginField.getText(), passwordField.getText()))
@@ -119,8 +151,16 @@ public class LoginController {
                     public void onNext(Worker worker) {
                         // ...
                         Constants.WORKER_AUTH_TOKEN = worker.getAuthToken();
+                        downloadBankProfile();
                         Platform.runLater(() -> {
                             //TODO tutaj mamy authToken
+                            Parent viewParent = null;
+                            try {
+                                viewParent = FXMLLoader.load(getClass().getResource("FXMLs/pracownikStworzKonto.fxml"));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            Scene viewScene = new Scene(viewParent);
                             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                             window.setScene(viewScene);
                             window.show();
@@ -140,6 +180,4 @@ public class LoginController {
                 });
     }
 
-
-    
 }

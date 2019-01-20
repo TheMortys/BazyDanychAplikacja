@@ -17,7 +17,13 @@ public interface Route {
     @POST("/pracownik/konto/dodaj/klient")
     Observable<DefaultResponse> addClient(@Header("Authorization") String header, @Body Client client);
 
+    @POST("pracownik/konto/dodaj/pracownik")
+    Observable<DefaultResponse> addWorker(@Header("Authorization") String header, @Body Worker worker);
+
     @GET("/klient/profil")
     Observable<ClientProfile> getClientProfile(@Header("Authorization") String header);
+
+    @GET("/pracownik/bank/dane")
+    Observable<Bank> getBank(@Header("Authorization") String header);
 
 }

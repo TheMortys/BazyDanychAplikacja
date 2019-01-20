@@ -101,7 +101,7 @@ public class CreateAccController {
      * @throws IOException
      */
     @FXML
-    protected void createAccButtonAction(ActionEvent event) throws IOException{
+    protected void createAccButtonAction(ActionEvent event){
         System.out.println(event.getSource().toString());
         Server.getInstance().getRoute().addClient("Bearer " + Constants.WORKER_AUTH_TOKEN, new Client(name.getText(), surname.getText(), pesel.getText(), nip.getText(), date.getText(), login.getText(), password.getText(), street.getText(), adrNumber1.getText(), adrNumber2.getText(), zipCode.getText(), city.getText(), Integer.parseInt(telephone.getText()), mail.getText()))
                 .subscribeOn(Schedulers.io())

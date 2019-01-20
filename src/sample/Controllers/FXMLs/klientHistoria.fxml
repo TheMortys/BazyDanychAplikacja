@@ -21,7 +21,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="66.0" layoutY="14.0" text="Jan Kowalski">
+            <Label fx:id="person" layoutX="66.0" layoutY="14.0" text="Jan Kowalski">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -31,7 +31,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="245.0" layoutY="14.0" text="12345.67 zł">
+            <Label fx:id="saldo" layoutX="245.0" layoutY="14.0" text="12345.67 zł">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -42,11 +42,11 @@
             <Button fx:id="investmentButton" layoutX="347.0" layoutY="38.0" mnemonicParsing="false" text="Lokaty" onAction="#investmentButtonAction"/>
             <Label layoutX="19.0" layoutY="83.0" text="Wybierz okres" />
             <Label layoutX="19.0" layoutY="110.0" text="od:" />
-            <DatePicker layoutX="38.0" layoutY="106.0" />
+            <DatePicker fx:id="from" layoutX="38.0" layoutY="106.0" />
             <Label layoutX="231.0" layoutY="110.0" text="do:" />
-            <DatePicker layoutX="260.0" layoutY="106.0" />
+            <DatePicker fx:id="to" layoutX="260.0" layoutY="106.0" />
             <Label layoutX="442.0" layoutY="83.0" text="Wybierz kategorię:" />
-            <ChoiceBox layoutX="442.0" layoutY="106.0" prefWidth="150.0" />
+            <ChoiceBox layoutX="442.0" layoutY="106.0" prefWidth="150.0"  />
             <Button fx:id="filterButton" layoutX="19.0" layoutY="147.0" mnemonicParsing="false" text="Filtruj" onAction="#filterButtonAction"/>
             <TextField layoutX="20.0" layoutY="186.0" promptText="Szukaj po tytule" />
             <ListView layoutX="19.0" layoutY="220.0" prefHeight="200.0" prefWidth="602.0" />

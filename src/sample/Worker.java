@@ -10,6 +10,26 @@ public class Worker {
     private String lastName;
     @SerializedName("authToken")
     private String authToken;
+    @SerializedName("login")
+    private String login;
+    @SerializedName("haslo")
+    private String haslo;
+    @SerializedName("email")
+    private String email;
+    @SerializedName("stanowisko")
+    private String stanowisko;
+    @SerializedName("telefon")
+    private String telefon;
+
+    public Worker(String name, String lastName, String login, String haslo, String email, String stanowisko, String telefon) {
+        this.name = name;
+        this.lastName = lastName;
+        this.login = login;
+        this.haslo = haslo;
+        this.email = email;
+        this.stanowisko = stanowisko;
+        this.telefon = telefon;
+    }
 
     public String getName() {
         return name;
@@ -34,4 +54,5 @@ public class Worker {
     public void setAuthToken(String authToken) {
         this.authToken = authToken;
     }
+
 }
