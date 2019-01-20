@@ -42,19 +42,19 @@
             <Button fx:id="loanButton" layoutX="283.0" layoutY="42.0" mnemonicParsing="false" text="Pożyczki" onAction="#loanButtonAction"/>
             <Button fx:id="investmentButton" layoutX="363.0" layoutY="42.0" mnemonicParsing="false" text="Lokaty" onAction="#investmentButtonAction"/>
             <Label layoutX="19.0" layoutY="77.0" text="Dane podstawowe" />
-            <TextField layoutX="21.0" layoutY="108.0" promptText="Na konto" />
-            <TextField layoutX="21.0" layoutY="146.0" promptText="Tytułem" />
-            <TextField layoutX="21.0" layoutY="186.0" promptText="0,00" />
+            <TextField fx:id="dst" layoutX="21.0" layoutY="108.0" promptText="Na konto" />
+            <TextField fx:id="tytul" layoutX="21.0" layoutY="146.0" promptText="Tytułem" />
+            <TextField fx:id="kwota" layoutX="21.0" layoutY="186.0" promptText="0,00" />
             <Label layoutX="175.0" layoutY="190.0" text="zł" />
             <ChoiceBox layoutX="21.0" layoutY="228.0" prefWidth="150.0">
-            <items>
-               <FXCollections fx:factory="observableArrayList">
-                  <String fx:value="Przelew" />
-                  <String fx:value="Spłata kredytu" />
-               </FXCollections>
-            </items>
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Przelew" />
+                     <String fx:value="Spłata kredytu" />
+                  </FXCollections>
+               </items>
             </ChoiceBox>
-            <DatePicker layoutX="19.0" layoutY="268.0" />
+            <DatePicker fx:id="data" layoutX="19.0" layoutY="268.0" />
             <Button fx:id="acceptButton" layoutX="42.0" layoutY="316.0" mnemonicParsing="false" text="Wykonaj" onAction="#acceptButtonAction"/>
             <Label fx:id="errorLabel" layoutX="21.0" layoutY="367.0" text="Coś poszło nie tak, spróbuj ponownie" textFill="RED" visible="false" />
          </children>

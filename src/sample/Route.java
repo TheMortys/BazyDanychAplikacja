@@ -20,6 +20,9 @@ public interface Route {
     @POST("pracownik/konto/dodaj/pracownik")
     Observable<DefaultResponse> addWorker(@Header("Authorization") String header, @Body Worker worker);
 
+    @POST("/klient/transakcje/przelew")
+    Observable<DefaultResponse> addTransfer(@Header("Authorization") String header, @Body Transfer transfer);
+
     @GET("/klient/profil")
     Observable<ClientProfile> getClientProfile(@Header("Authorization") String header);
 

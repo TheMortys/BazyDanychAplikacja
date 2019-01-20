@@ -25,8 +25,14 @@ public class PlaceInfoController implements Initializable {
     private Label telefon;
     @FXML
     private Label mail;
-
-
+    @FXML
+    private Label nrdomu;
+    @FXML
+    private Label nrlokalu;
+    @FXML
+    private Label kodpocztowy;
+    @FXML
+    private Label miejscowosc;
 
     /**
      *
@@ -89,5 +95,9 @@ public class PlaceInfoController implements Initializable {
         nazwa.setText(Constants.bank.getNazwa());
         telefon.setText(Constants.bank.getTelefon());
         mail.setText(Constants.bank.getEmail());
+        nrdomu.setText(Integer.toString(Constants.bank.getAdress().getNumerDomu()));
+        nrlokalu.setText(Integer.toString(Constants.bank.getAdress().getNumerLokalu()));
+        kodpocztowy.setText(Constants.bank.getAdress().getKodPocztowy());
+        miejscowosc.setText(Constants.bank.getAdress().getMiejscowosc());
     }
 }
