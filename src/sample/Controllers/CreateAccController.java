@@ -2,6 +2,9 @@ package sample.Controllers;
 
 import java.io.IOException;
 
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +14,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.Client;
+import sample.Constants;
+import sample.DefaultResponse;
 import sample.Server;
 
 public class CreateAccController {
@@ -98,7 +103,29 @@ public class CreateAccController {
     @FXML
     protected void createAccButtonAction(ActionEvent event) throws IOException{
         System.out.println(event.getSource().toString());
-        Server.getInstance().getRoute().addClient(new Client(name.getText(), surname.getText(), pesel.getText(), nip.getText(), date.getText(), login.getText(), password.getText(), street.getText(), adrNumber1.getText(), adrNumber2.getText(), zipCode.getText(), city.getText(), Integer.parseInt(telephone.getText()), mail.getText()));
+        Server.getInstance().getRoute().addClient("Bearer " + Constants.WORKER_AUTH_TOKEN, new Client(name.getText(), surname.getText(), pesel.getText(), nip.getText(), date.getText(), login.getText(), password.getText(), street.getText(), adrNumber1.getText(), adrNumber2.getText(), zipCode.getText(), city.getText(), Integer.parseInt(telephone.getText()), mail.getText()))
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<DefaultResponse>() {
+                    @Override
+                    public void onSubscribe(Disposable disposable) {
+
+                    }
+
+                    @Override
+                    public void onNext(DefaultResponse defaultResponse) {
+                        System.out.println(defaultResponse.getSuccess() + " wartosc");
+                    }
+
+                    @Override
+                    public void onError(Throwable throwable) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
     
 }

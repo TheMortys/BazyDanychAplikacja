@@ -33,7 +33,7 @@ public class Client {
     private String pesel;
     @SerializedName("nip")
     private String nip;
-    @SerializedName("data")
+    @SerializedName("dataUrodzenia")
     private String date;
     @SerializedName("login")
     private String login;
@@ -41,9 +41,9 @@ public class Client {
     private String password;
     @SerializedName("ulica")
     private String street;
-    @SerializedName("nrDomu")
+    @SerializedName("numerDomu")
     private String adrNumber1;
-    @SerializedName("nrLokalu")
+    @SerializedName("numerLokalu")
     private String adrNumber2;
     @SerializedName("kodPocztowy")
     private String zipCode;

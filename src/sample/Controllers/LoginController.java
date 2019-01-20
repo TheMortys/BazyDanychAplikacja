@@ -16,10 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import sample.Client;
-import sample.LoginRequest;
-import sample.Server;
-import sample.Worker;
+import sample.*;
 
 public class LoginController {
     
@@ -48,7 +45,9 @@ public class LoginController {
 
                     @Override
                     public void onNext(Client client) {
-                        // ...
+
+                        Constants.CLIENT_AUTH_TOKEN = client.getAuthToken();
+                        downloadClientProfile();
                         Platform.runLater(() -> {
                             //TODO tutaj mamy authToken
                             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -61,6 +60,33 @@ public class LoginController {
                     public void onError(Throwable throwable) {
                         System.out.println(throwable.toString());
                         errorLabel.setVisible(true);
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+
+    private void downloadClientProfile() {
+        Server.getInstance().getRoute().getClientProfile("Bearer " + Constants.CLIENT_AUTH_TOKEN)
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<ClientProfile>() {
+                    @Override
+                    public void onSubscribe(Disposable disposable) {
+
+                    }
+
+                    @Override
+                    public void onNext(ClientProfile clientProfile) {
+                        System.out.println(clientProfile.toString());
+                    }
+
+                    @Override
+                    public void onError(Throwable throwable) {
+
                     }
 
                     @Override
@@ -92,6 +118,7 @@ public class LoginController {
                     @Override
                     public void onNext(Worker worker) {
                         // ...
+                        Constants.WORKER_AUTH_TOKEN = worker.getAuthToken();
                         Platform.runLater(() -> {
                             //TODO tutaj mamy authToken
                             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

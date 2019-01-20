@@ -2,6 +2,8 @@ package sample;
 
 import io.reactivex.Observable;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface Route {
@@ -13,6 +15,9 @@ public interface Route {
     Observable<Client> clientLogin(@Body LoginRequest loginRequest);
 
     @POST("/pracownik/konto/dodaj/klient")
-    Observable<Client> addClient(@Body Client client);
+    Observable<DefaultResponse> addClient(@Header("Authorization") String header, @Body Client client);
+
+    @GET("/klient/profil")
+    Observable<ClientProfile> getClientProfile(@Header("Authorization") String header);
 
 }
