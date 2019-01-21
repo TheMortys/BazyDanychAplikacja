@@ -16,9 +16,9 @@
             <Button fx:id="addEmployeeButton" layoutX="268.0" layoutY="14.0" mnemonicParsing="false" text="Dodaj pracownika" onAction="#addEmployeeButtonAction"/>
             <Button fx:id="infoButton" layoutX="391.0" layoutY="14.0" mnemonicParsing="false" text="Dane placówki" onAction="#infoButtonAction"/>
             <Label layoutX="15.0" layoutY="59.0" text="Wyszukaj konto" />
-            <TextField layoutX="14.0" layoutY="76.0" promptText="Imię" />
-            <TextField layoutX="14.0" layoutY="108.0" promptText="Nazwisko" />
-            <TextField layoutX="14.0" layoutY="141.0" promptText="PESEL" />
+            <TextField fx:id="name" layoutX="14.0" layoutY="76.0" promptText="Imię" />
+            <TextField fx:id="surname" layoutX="14.0" layoutY="108.0" promptText="Nazwisko" />
+            <TextField fx:id="pesel" layoutX="14.0" layoutY="141.0" promptText="PESEL" />
             <Label fx:id="errorLabel" layoutX="15.0" layoutY="174.0" text="Nie znaleziono takiego konta!" textFill="RED" visible="false" />
             <Button fx:id="searchButton" layoutX="15.0" layoutY="215.0" mnemonicParsing="false" text="Wyszukaj" onAction="#searchButtonAction"/>
          </children>

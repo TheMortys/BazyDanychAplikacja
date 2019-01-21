@@ -21,6 +21,8 @@ public class Client {
         this.mail = mail;
     }
 
+
+
     @SerializedName("imie")
     private String name;
     @SerializedName("nazwisko")
@@ -171,4 +173,5 @@ public class Client {
     public void setAuthToken(String authToken) {
         this.authToken = authToken;
     }
+
 }

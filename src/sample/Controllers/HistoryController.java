@@ -1,5 +1,8 @@
 package sample.Controllers;
 
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +12,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import sample.Bank;
 import sample.Constants;
+import sample.Server;
+import sample.Transfer;
 
 import java.io.IOException;
 import java.net.URL;
@@ -96,5 +102,32 @@ public class HistoryController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         person.setText(Constants.client.getName() + " " + Constants.client.getLastName());
         saldo.setText(Float.toString(Constants.client.getAccounts().get(0).getSaldo()));
+        downloadHistory();
+    }
+
+    private void downloadHistory() {
+        Server.getInstance().getRoute().getHistory("Bearer " + Constants.CLIENT_AUTH_TOKEN, Integer.toString(Constants.client.getId()))
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<Transfer[]>() {
+                    @Override
+                    public void onSubscribe(Disposable disposable) {
+
+                    }
+
+                    @Override
+                    public void onNext(Transfer[] transfers) {
+                        System.out.println(transfers.toString());
+                    }
+
+                    @Override
+                    public void onError(Throwable throwable) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 }

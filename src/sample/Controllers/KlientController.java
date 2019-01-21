@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.Constants;
 
@@ -46,7 +47,7 @@ public class KlientController implements Initializable{
     @FXML
     private Label saldo;
     @FXML
-    private Label numerkonta;
+    private TextField numerkonta;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -5,6 +5,7 @@ public class Constants {
     public static String WORKER_AUTH_TOKEN = "";
     public static String CLIENT_AUTH_TOKEN = "";
     public static ClientProfile client;
+    public static ClientProfile findedClient;
     public static Bank bank;
 
     public ClientProfile getClient() {
