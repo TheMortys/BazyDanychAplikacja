@@ -1,0 +1,4 @@
+'use strict'
+
+module.exports.jwtSecret = 'YNByn6eBjrSa3Ah6xYR3r7qtLVy3XMCa2mvsPgbsZSeKn2kDfQtzgDzaVX2QmjRVGxrs5QEC3P3SfJExvQTkjJepwJ9avDz7Xd6yQk3xY8Zc5qCmN3vNtqYW7enbX8ES'
+module.exports.pwdSecret = '8G8aNtpXVjfQeW9nRCbfPK4UVCUBshDPtDFDarn7Mm7ghXjECjFsbNA7CgpJVRMWT3pdSA4fCMyFv53w9qwjwx39xDEaAMbGAjLDT5VRe6kZWShsmHdXSazuJmNLjpnc'

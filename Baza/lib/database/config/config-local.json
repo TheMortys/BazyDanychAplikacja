@@ -1,0 +1,13 @@
+{
+  "username": "root",
+  "password": "password",
+  "database": "bankaccountdatabase",
+  "host": "127.0.0.1",
+  "dialect": "mysql",
+  "operatorsAliases": false,
+  "benchmark": true,
+  "pool": {
+    "min": 2,
+    "max": 10
+  }
+}
