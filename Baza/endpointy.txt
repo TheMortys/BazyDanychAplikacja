@@ -1,0 +1,378 @@
+﻿POST http://localhost:3000/pracownik/konto/dodaj/klient
+auth token
+
+req {
+  "login": "testklient",
+  "ulica": "ulica",
+  "numerDomu": 1,
+  "numerLokalu": 1,
+  "kodPocztowy": "11111",
+  "miejscowosc": "miejscowosc",
+  "imie": "imie",
+  "nazwisko": "nazwisko",
+  "pesel": "99999999999",
+  "nip": "",
+  "dataUrodzenia": "2000-01-01",
+  "haslo": "password",
+  "telefon": "999999999",
+  "email": "testklient@email.com"
+}
+
+GET http://localhost:3000/pracownik/bank/dane
+Authorization: Bearer <auth token>
+
+res {
+"id": 1,
+"nazwa": "Test Bank",
+"telefon": "888888888",
+"email": "bank@test.com",
+"adresId": 1,
+"AdresID": 1,
+"adres": {
+"id": 1,
+"ulica": "Testowa",
+"numerDomu": 1,
+"numerLokalu": 1,
+"kodPocztowy": "11111",
+"miejscowosc": "Test"
+}
+}
+
+GET http://localhost:3000/pracownik/konto/wyszukaj/klient?imie=imie&nazwisko=nazwisko&pesel=99999999999
+auth token
+
+res {
+"id": 1,
+"imie": "imie",
+"nazwisko": "nazwisko",
+"login": "testklient",
+"haslo": "f9ee1132cbc0f66fd121a59cc5a35abdb612a50ba15cdb2688fd0b7b58a5dad0",
+"pesel": "99999999999",
+"nip": "",
+"telefon": 999999999,
+"email": "testklient@email.com",
+"dataUrodzenia": "2000-01-01",
+"adresId": 3,
+"bankId": 1,
+"BankID": 1,
+"AdresID": 3,
+"kontos": [
+  {
+"id": 1,
+"numer": "94130009333891882894016292",
+"saldo": 0,
+"dataUtworzenia": "2019-01-06T09:40:16.000Z",
+"klientId": 1,
+"bankId": 1,
+"pracownikId": 1,
+"KlientID": 1,
+"PracownikID": 1,
+"BankID": 1
+}
+],
+"adre": {
+"id": 3,
+"ulica": "ulica",
+"numerDomu": 1,
+"numerLokalu": 1,
+"kodPocztowy": "11111",
+"miejscowosc": "miejscowosc"
+}
+}
+
+POST http://localhost:3000/auth/login/pracownik
+
+req {
+  "login": "jkowalski",
+  "password": "password"
+}
+
+res {
+"id": 1,
+"imie": "imie",
+"nazwisko": "nazwisko",
+"login": "testklient",
+"haslo": "f9ee1132cbc0f66fd121a59cc5a35abdb612a50ba15cdb2688fd0b7b58a5dad0",
+"pesel": "99999999999",
+"nip": "",
+"telefon": 999999999,
+"email": "testklient@email.com",
+"dataUrodzenia": "2000-01-01",
+"adresId": 3,
+"bankId": 1,
+"BankID": 1,
+"AdresID": 3,
+"kontos": [
+  {
+"id": 1,
+"numer": "94130009333891882894016292",
+"saldo": 0,
+"dataUtworzenia": "2019-01-06T09:40:16.000Z",
+"klientId": 1,
+"bankId": 1,
+"pracownikId": 1,
+"KlientID": 1,
+"PracownikID": 1,
+"BankID": 1
+}
+],
+"adre": {
+"id": 3,
+"ulica": "ulica",
+"numerDomu": 1,
+"numerLokalu": 1,
+"kodPocztowy": "11111",
+"miejscowosc": "miejscowosc"
+}
+}
+
+POST http://localhost:3000/auth/login/klient
+
+req {
+  "login": "testklient",
+  "password": "password"
+}
+
+res {
+"imie": "imie",
+"nazwisko": "nazwisko",
+"pesel": "99999999999",
+"nip": "",
+"authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJ0ZXN0a2xpZW50IiwiZW1haWwiOiJ0ZXN0a2xpZW50QGVtYWlsLmNvbSIsImltaWUiOiJpbWllIiwibmF6d2lza28iOiJuYXp3aXNrbyIsImlhdCI6MTU0Njc3MTI3NX0.MRiTQXvD6poC3InYpaVc1BjG3ckG7jn44ib7opcrO8Y"
+}
+
+GET http://localhost:3000/klient/profil 
+auth token
+
+{
+"id": 1,
+"imie": "imie",
+"nazwisko": "nazwisko",
+"login": "testklient",
+"haslo": "f9ee1132cbc0f66fd121a59cc5a35abdb612a50ba15cdb2688fd0b7b58a5dad0",
+"pesel": "99999999999",
+"nip": "",
+"telefon": 999999999,
+"email": "testklient@email.com",
+"dataUrodzenia": "2000-01-01",
+"adresId": 3,
+"bankId": 1,
+"BankID": 1,
+"AdresID": 3,
+"kontos": [
+  {
+"id": 1,
+"numer": "94130009333891882894016292",
+"saldo": 0,
+"dataUtworzenia": "2019-01-06T09:40:16.000Z",
+"klientId": 1,
+"bankId": 1,
+"pracownikId": 1,
+"KlientID": 1,
+"PracownikID": 1,
+"BankID": 1
+}
+],
+"adre": {
+"id": 3,
+"ulica": "ulica",
+"numerDomu": 1,
+"numerLokalu": 1,
+"kodPocztowy": "11111",
+"miejscowosc": "miejscowosc"
+}
+}
+
+POST http://localhost:3000/pracownik/transakcje/przelew/klient/:klientId
+auth token
+
+req {
+  "kwota": 100.00,
+  "data": "2018-01-06",
+  "docelowyNrKonta": "111111111111111111",
+  "tytul": "test"
+}
+
+POST http://localhost:3000/pracownik/transakcje/wplata/klient/:klientId
+auth token
+
+req {
+  "kwota": 100.00,
+  "data": "2018-01-06"
+}
+
+POST http://localhost:3000/pracownik/transakcje/wyplata/klient/:klientId
+auth token
+
+req {
+  "kwota": 100.00,
+  "data": "2018-01-06"
+}
+
+GET http://localhost:3000/pracownik/transakcje/historia/klient/:klientId?sort=...&date=...
+auth token
+date i sort opcjonalne, domyslne sortowanie po najnowszych
+
+if (req.query.sort === 'date_DESC') {
+    sort = [['id', 'DESC']]
+  } else if (req.query.sort === 'date_ASC') {
+    sort = [['id', 'ASC']]
+  } else if (req.query.sort === 'kwota_DESC') {
+    sort = [['Kwota', 'DESC']]
+  } else if (req.query.sort === 'kwota_ASC') {
+    sort = [['Kwota', 'ASC']]
+  } else if (req.query.sort === 'typ_DESC') {
+    sort = [['Kategoria', 'DESC']]
+  } else if (req.query.sort === 'typ_ASC') {
+    sort = [['Kategoria', 'ASC']]
+  } else if (req.query.sort === 'konto_DESC') {
+    sort = [['Docelowy_nr_konta', 'DESC']]
+  } else if (req.query.sort === 'konto_ASC') {
+    sort = [['Docelowy_nr_konta', 'ASC']]
+  } else {
+    sort = [['id', 'DESC']]
+  }
+
+res [
+{
+"id": 3,
+"data": "2018-01-06",
+"kwota": 100,
+"docelowyNrKonta": "111111111111111111",
+"tytul": "test",
+"kategoria": "Przelew",
+"kontoId": 1,
+"KontoID": 1
+},
+  {
+"id": 2,
+"data": "2018-01-06",
+"kwota": 100,
+"docelowyNrKonta": null,
+"tytul": null,
+"kategoria": "Wpłata",
+"kontoId": 1,
+"KontoID": 1
+},
+(...)
+]
+
+POST http://localhost:3000/klient/transakcje/przelew
+auth token
+
+req {
+  "docelowyNrKonta": "45398403490229025754312361",
+  "tytul": "Test procedury przelewu",
+  "kwota": 50,
+  "data": "2018-01-06"
+}
+
+POST http://localhost:3000/pracownik/konto/dodaj/pracownik
+auth token
+
+req {
+  "login": "testpracownik",
+  "imie": "imie",
+  "nazwisko": "nazwisko",
+  "haslo": "password",
+  "telefon": "999989999",
+  "email": "testpracownik@email.com",
+  "stanowisko": "test dodania"
+}
+
+DELETE http://localhost:3000/pracownik/konto/usun/klient/:klientId
+auth token
+
+POSThttp://localhost:3000/pracownik/pozyczki/dodaj/klient/:klientId
+auth token
+
+req {
+  "kwota": 113,
+  "terminSplaty": "2018-02-28",
+  "oprocentowanie": 1.2
+}
+
+POST http://localhost:3000/pracownik/lokaty/dodaj/klient/:klientId
+auth token
+
+req {
+ "kwota": 113,
+  "oprocentowanie": 1.2
+}
+
+GET http://localhost:3000/pracownik/pozyczki/lista/klient/:klientId?sort=...
+auth token
+sort opcjonalne, domyslne sortowanie po najnowszych
+
+if (req.query.sort === 'date_start_DESC') {
+    sort = [['id', 'DESC']]
+  } else if (req.query.sort === 'date_start_ASC') {
+    sort = [['id', 'ASC']]
+  } else if (req.query.sort === 'kwota_DESC') {
+    sort = [['Kwota', 'DESC']]
+  } else if (req.query.sort === 'kwota_ASC') {
+    sort = [['Kwota', 'ASC']]
+  } else if (req.query.sort === 'oprocentowanie_DESC') {
+    sort = [['oprocentowanie', 'DESC']]
+  } else if (req.query.sort === 'oprocentowanie_ASC') {
+    sort = [['oprocentowanie', 'ASC']]
+  } else if (req.query.sort === 'deadline_DESC') {
+    sort = [['Termin_spłaty', 'DESC']]
+  } else if (req.query.sort === 'deadline_ASC') {
+    sort = [['Termin_spłaty', 'ASC']]
+  } else {
+    sort = [['id', 'DESC']]
+  }
+  
+res [
+  {
+"id": 2,
+"kwota": 113,
+"oprocentowanie": 1.2,
+"terminSplaty": "2018-02-28",
+"dataUtworzenia": "2019-01-06T10:23:46.000Z",
+"kontoId": 1,
+"KontoID": 1
+},
+  {
+"id": 1,
+"kwota": 113,
+"oprocentowanie": 1.2,
+"terminSplaty": "2018-02-28",
+"dataUtworzenia": "2019-01-06T10:23:34.000Z",
+"kontoId": 1,
+"KontoID": 1
+}
+],
+
+
+GET http://localhost:3000/pracownik/lokaty/lista/klient/:klientId?sort=...
+auth token
+sort opcjonalne, domyslne sortowanie po najnowszych
+
+if (req.query.sort === 'date_start_DESC') {
+    sort = [['id', 'DESC']]
+  } else if (req.query.sort === 'date_start_ASC') {
+    sort = [['id', 'ASC']]
+  } else if (req.query.sort === 'kwota_DESC') {
+    sort = [['Kwota', 'DESC']]
+  } else if (req.query.sort === 'kwota_ASC') {
+    sort = [['Kwota', 'ASC']]
+  } else if (req.query.sort === 'oprocentowanie_DESC') {
+    sort = [['oprocentowanie', 'DESC']]
+  } else if (req.query.sort === 'oprocentowanie_ASC') {
+    sort = [['oprocentowanie', 'ASC']]
+  } else {
+    sort = [['id', 'DESC']]
+  }
+  
+res [
+  {
+"id": 1,
+"oprocentowanie": 1.2,
+"kwota": 114.356,
+"dataUtworzenia": "2018-01-06T10:24:41.000Z",
+"kontoId": 1,
+"KontoID": 1
+}
+],
